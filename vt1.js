@@ -4,7 +4,7 @@
 // Joukkueen rastileimausten rastit ovat viitteitä data.rastit-taulukossa lueteltuihin rasteihin
 
 // Kirjoita tästä eteenpäin oma ohjelmakoodisi
-
+console.log("MINNE tama teksti tulee   blaa blaa lbaa lbaabla a");
 
 /**
   * Taso 1
@@ -14,9 +14,14 @@
   * @param {Object} data - tietorakenne, jonka data.leimaustavat-taulukon kopio järjestetään 
   * @return {Array} palauttaa järjestetyn _kopion_ data.leimaustavat-taulukosta
 */
+
 function jarjestaLeimaustavat(data) {
   console.log(data);
-  return data.leimaustavat; // tässä pitää palauttaa järjestetty kopio eikä alkuperäistä
+  let kopiolista = JSON.parse(JSON.stringify(data.leimaustavat));
+  kopiolista.sort();
+  console.log("tama on kopiolista:   " + kopiolista);
+
+  return kopiolista; // tässä pitää palauttaa järjestetty kopio eikä alkuperäistä
 }
 
 /**
@@ -28,7 +33,22 @@ function jarjestaLeimaustavat(data) {
   * @return {Array} palauttaa järjestetyn _kopion_ data.sarjat-taulukosta
   */
 function jarjestaSarjat(data) {
-  return data.sarjat;  // tässä pitää palauttaa järjestetty kopio eikä alkuperäistä
+
+  let kopiosarjat = JSON.parse(JSON.stringify(data.sarjat));
+  kopiosarjat.sort(function(a,b){
+      const nimiA = a.nimi.toUpperCase();
+      const nimiB = b.nimi.toUpperCase();
+      if (nimiA < nimiB) {
+        return -1;
+      }
+      if (nimiA > nimiB) {
+        return 1;
+      }
+
+      return 0;
+  });
+
+  return kopiosarjat;  // tässä pitää palauttaa järjestetty kopio eikä alkuperäistä
 }
 
 
