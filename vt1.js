@@ -4,7 +4,7 @@
 // Joukkueen rastileimausten rastit ovat viitteitä data.rastit-taulukossa lueteltuihin rasteihin
 
 // Kirjoita tästä eteenpäin oma ohjelmakoodisi
-console.log("MINNE tama teksti tulee   blaa blaa lbaa lbaabla a");
+
 
 /**
   * Taso 1
@@ -22,6 +22,7 @@ function jarjestaLeimaustavat(data) {
   console.log("tama on kopiolista:   " + kopiolista);
 
   return kopiolista; // tässä pitää palauttaa järjestetty kopio eikä alkuperäistä
+  //return data.leimaustavat;
 }
 
 /**
@@ -75,7 +76,34 @@ function jarjestaSarjat(data) {
   * @param {String} loppuaika - Sarjan loppuaika, ei pakollinen
   * @return {Object} palauttaa muutetun alkuperäisen data-tietorakenteen
   */
+
 function lisaaSarja(data, nimi, kesto, alkuaika, loppuaika) {
+  
+  //vertaillaan onko jo saman nimistä sarjaa. Jos on, niin palautetaan alkuperäinen datarakenne
+  for (let looppari of data.sarjat){
+    if (looppari.nimi.toLowerCase().localeCompare(nimi.toLowerCase())===0){
+      return data;
+    }
+ 
+  }
+
+  //poistetaan whitespace, jos pituus sen jälkeen nolla, niin palautetaan alkuperäinen data
+  let nimitrimmattu = nimi.trim();
+  if (nimitrimmattu.length===0){
+    return data;
+  }
+
+  const muunnettu = Number(data.sarjat.kesto);
+  
+  if (Number.isInteger(muunnettu)===true&&muunnettu>0===true){
+    const obj = {};
+    obj.nimi = nimi;
+    obj.kesto = kesto;
+    obj.alkuaika = alkuaika;
+    obj.loppuaika = loppuaika;
+    data.sarjat.push(obj);
+  }
+
   return data;
 }
 
