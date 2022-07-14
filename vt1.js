@@ -107,6 +107,13 @@ function lisaaSarja(data, nimi, kesto, alkuaika, loppuaika) {
   return data;
 }
 
+
+
+
+
+
+
+
 /**
   * Taso 1
   * Poistaa joukkueen id:n perusteella data-rakenteesta ja palauttaa muuttuneen datan
@@ -115,6 +122,13 @@ function lisaaSarja(data, nimi, kesto, alkuaika, loppuaika) {
   * @return {Object} palauttaa muuttuneen alkuperäisen datan
   */
 function poistaJoukkue(data, id) {
+  let index = 0; //indeksi, jonka perusteella rakenteesta poistetaan
+  for (let looppari of data.joukkueet) {
+    if (looppari.id==id){
+      data.joukkueet.splice(index,1);
+    }
+    index++; //lisataan indeksia joka kierroksella
+  }//for looppi
   return data;
 }
 
