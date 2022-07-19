@@ -142,7 +142,46 @@ function poistaJoukkue(data, id) {
   * @return {Array} palauttaa järjestetyn _kopion_ data.rastit-taulukosta
   */
 function jarjestaRastit(data) {
-  return data.rastit;
+  //tehdään syväkopio alkuperäisestä rastit taulukosta, jottei alkuperäinen muutu
+  let kopiotaulukko = JSON.parse(JSON.stringify(data.rastit)); //tehdään syväkopio taulukosta
+
+  //funktio joka palauttaa numerollisista arvoista koostuvan rastitaulukon
+  function filterByIDnum(item) {
+    if (!isNaN(item.koodi)) {
+      return true;
+    }
+
+    return false;
+  }
+
+  //funktio joka palauttaa ei-numeerisilla arvoilla olevat rastit taulukkona
+  function filterByIDkirj(item) {
+    if (isNaN(item.koodi)) {
+      return true;
+    }
+
+    return false;
+  }
+  //tehdään lajitellut taulukot 
+  let pelkatnumerot = kopiotaulukko.filter(filterByIDnum);
+  let pelkatkirjaimet = kopiotaulukko.filter(filterByIDkirj);
+  //aakkostetaan kirjainrastitaulukko
+  pelkatkirjaimet.sort((a, b) => {
+    let fa = a.koodi.toLowerCase(),
+        fb = b.koodi.toLowerCase();
+
+    if (fa < fb) {
+        return -1;
+    }
+    if (fa > fb) {
+        return 1;
+    }
+    return 0;
+  });
+  //yhdistetään taulukot
+  Array.prototype.push.apply(pelkatkirjaimet,pelkatnumerot);
+  //palautetaan yhdistetty taulukko
+  return pelkatkirjaimet;
 }
 
 
