@@ -218,6 +218,83 @@ function jarjestaRastit(data) {
   * @return {Object} palauttaa muutetun alkuperäisen data-tietorakenteen
   */
 function lisaaJoukkue(data, nimi, leimaustavat, sarja, jasenet) {
+   //data.joukkueet
+  //tarkistetaan, ettei datarakenteessa ole jo samaa nimea
+  for (let looppari of data.joukkueet){
+    let nimitemp = looppari.nimi.trim();
+    let nimilisattava = nimi.trim();
+    if (nimilisattava.length==0){
+      return data;
+    } 
+    if (nimitemp.length==0){
+      return data;
+    } 
+
+    if (nimitemp.toLowerCase()===nimilisattava.toLowerCase()){
+      return data;
+    }
+  }
+
+  //tarkistetaan että leimaustavat löytyvät
+  if (leimaustavat.length<1){
+    return data;
+  }
+  for (let looppari of leimaustavat){
+    let sisaltaako = data.leimaustavat.indexOf(looppari);
+    if (sisaltaako===-1){
+      return data;
+    }
+  
+  }
+  //tarkistetaan, että jäseniä on tarpeeksi
+  if (jasenet.length<2){
+    return data;
+  } 
+  //loopit tarkistavat onko duplikaattijasenia
+  for (let looppari of jasenet){
+    let indeksi = 0;
+    for (let looppari2 of jasenet){
+      if (looppari===looppari2){
+        indeksi++;
+      } 
+
+
+
+    }
+    if (indeksi>1){
+      return data;
+    } 
+  }
+
+  let sarjaloytyiindeksi = 0;
+  //tarkistetaan löytyykö sarja
+  for (let looppari of data.sarjat){
+
+    if (looppari.nimi===sarja){
+      sarjaloytyiindeksi++;
+    } 
+    //if (!looppari.nimi==="mirri") return "loytyi sarja";
+  }
+  if (sarjaloytyiindeksi===0){
+    return data;
+  } 
+
+  //luodaaan uusi objekti ja lisataan se datarakenteeseen
+  let rastileimaukset = [];
+  let lisattavajoukkue = {};
+  lisattavajoukkue.id = 12345678;
+  lisattavajoukkue.nimi = nimi;
+  lisattavajoukkue.jasenet = jasenet;
+  lisattavajoukkue.leimaustapa = leimaustavat;
+  lisattavajoukkue.rastileimaukset = rastileimaukset;
+  lisattavajoukkue.sarja = sarja;
+  lisattavajoukkue.pisteet = 0;
+  lisattavajoukkue.matka = 0;
+  lisattavajoukkue.aika = "00:00:00";
+
+data.joukkueet.push(lisattavajoukkue);
+ 
+  
   return data;
 }
 
@@ -232,6 +309,7 @@ function lisaaJoukkue(data, nimi, leimaustavat, sarja, jasenet) {
   * @return {Object} joukkue
   */
 function laskeAika(joukkue) {
+  
   return joukkue;
 }
 
