@@ -145,11 +145,7 @@ function jarjestaRastit(data) {
   //tehdään syväkopio alkuperäisestä rastit taulukosta, jottei alkuperäinen muutu
   let kopiotaulukko = JSON.parse(JSON.stringify(data.rastit)); //tehdään syväkopio taulukosta
 
-  /**
- * funktio joka palauttaa numeerisilla koodiarvoilla olevat rastit taulukkona
- * @param {Array} item muokattava taulukko
- * @return {Array} taulukko, jossa vain numeeriset koodit
- */
+  //funktio joka palauttaa numerollisista arvoista koostuvan rastitaulukon
   function filterByIDnum(item) {
     if (!isNaN(item.koodi.charAt(0))) {
       return true;
@@ -157,11 +153,8 @@ function jarjestaRastit(data) {
 
     return false;
   }
-/**
- * funktio joka palauttaa ei-numeerisilla koodiarvoilla olevat rastit taulukkona
- * @param {Array} item muokattava taulukko
- * @return {Array} taulukko, jossa vain ei-numeeriset koodit
- */
+
+  //funktio joka palauttaa ei-numeerisilla arvoilla olevat rastit taulukkona
   function filterByIDkirj(item) {
     if (isNaN(item.koodi.charAt(0))) {
       return true;
@@ -225,7 +218,7 @@ function jarjestaRastit(data) {
   * @return {Object} palauttaa muutetun alkuperäisen data-tietorakenteen
   */
 function lisaaJoukkue(data, nimi, leimaustavat, sarja, jasenet) {
-  //data.joukkueet
+   //data.joukkueet
   //tarkistetaan, ettei datarakenteessa ole jo samaa nimea
   for (let looppari of data.joukkueet){
     let nimitemp = looppari.nimi.trim();
@@ -265,6 +258,8 @@ function lisaaJoukkue(data, nimi, leimaustavat, sarja, jasenet) {
         indeksi++;
       } 
 
+
+
     }
     if (indeksi>1){
       return data;
@@ -278,7 +273,7 @@ function lisaaJoukkue(data, nimi, leimaustavat, sarja, jasenet) {
     if (looppari.nimi===sarja){
       sarjaloytyiindeksi++;
     } 
-   
+    //if (!looppari.nimi==="mirri") return "loytyi sarja";
   }
   if (sarjaloytyiindeksi===0){
     return data;
