@@ -1,37 +1,214 @@
+html {
+ 
+}
+
+html > body {
+  
+}
+
 /*div containeri divien ympärillä*/
 #vt1 > div > div{
   display: flex;
-}
+  
 
+}
+/*pääotsikko h1 */
+html > body > h1 {
+  width: 14em;
+  background-color: purple;
+  
+}
 
 /* joukkueet laatikko */
 #vt1 > div > div > div:nth-child(1){
   background-color: white;
   border-style: solid;
-  border-block-width: 0.2em;
+ 
+  border-color: blue;
+  border-collapse: collapse;
+  border-left-width: 0.1em;
+  border-right-width: 0.1em;;
+  border-bottom-width: 0.1em;
+  border-top-width: 0.1em;
+  padding: 0.6em;
 
+  
 }
 
+
+
+/* joukkueet laatikon table */
 #vt1 > div > div > div > table {
-  table-layout: fixed;
+
   border-collapse: collapse;
   border: 1px solid blue;
+  table-layout: auto;  
+  width: 100%;
 }
 
-#vt1 > div > div > div > table > tbody {
-  
+/* joukkueet laatikon tablerow reunus */
+#vt1 > div > div > div > table > tbody > tr {
+
+  border-collapse: collapse;
   border: 1px solid blue;
+  
+}
+
+/* joukkueet laatikon tablesolujen eli tdatan reunus */
+#vt1 > div > div > div > table > tbody > tr > td  {
+ 
+  border-collapse: collapse;
+  border: 1px solid blue;
+  overflow: hidden;
 }
 
 
-/* lisaa sarja jne. */
+
+/* joukkueet laatikon tablesolujen lista kolumnidata*/
+#vt1 > div > div > div > table > tbody > tr > td {
+  
+  width: auto;
+  
+}
+
+/* joukkueet laatikon tablesolujen lista 3 kolumnidata*/
+#vt1 > div > div > div > table > tbody > tr > td:nth-child(3) {
+  background-color: blue;
+  width: 11em;
+  
+}
+
+
+
+
+/* joukkueet laatikon tablen leimaustavat lista ul */
+#vt1 > div > div > div > table > tbody > tr > td > ul  {
+  background-color: red;
+  padding-left: 20%;
+
+}
+
+
+/* joukkueet laatikon tablen toinen kolumni*/
+#vt1 > div > div > div > table > tbody > tr > td:nth-child(2)  {
+ max-width: 35%;
+}
+
+/* joukkueet laatikon tablen tableheading */
+#vt1 > div > div > div > table > thead > tr > th  {
+ background-color: red;
+ overflow: hidden;
+}
+
+/* joukkueet laatikon tablen tableheading */
+#vt1 > div > div > div > table > tbody > tr > th  {
+ background-color: pink;
+ overflow: hidden;
+}
+
+
+
+/*--------------------------------------------------*/
+/* lisaa sarja jne. laatikko */
 #vt1 > div > div > div:nth-child(2){
-  background-color: lime;
+  background-color: white;
+
+  border-style: solid;
+
+  border-color: blue;
+  border-collapse: collapse;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  border-left-width: 0.1em;
+  border-right-width: 0.1em;
+  border-top-width: 0.1em;
+  border-bottom-width: 0.1em;
+  padding-left: 1%;
+  padding-top: 1%;
+ 
+  display: block;
+  overflow: hidden;
+  /*! background: ; */
+  
 }
 
-/* Sarjat */
-#vt1 > div > div > div:nth-child(3){
-  background-color: purple;
+/*poistetaan formien reunat*/
+#vt1 > div > div > div > form >fieldset{
+  border-style: hidden;
 }
+
+/*form*/
+#vt1 > div > div > div > form {
+  background-color: pink;
+
+
+}
+
+#vt1 > div > div > div > form > fieldset > label {
+ border-style: hidden;
+ background-color: lime; 
+ display: block;
+}
+
+#vt1 > div > div > div > form > fieldset > fieldset > label {
+ border-style: hidden;
+ background-color: lime; 
+ display: block;
+}
+
+#vt1 > div > div > div:nth-child(2) > h3 {
+  
+background-color: coral;
+ 
+}
+
+
+
+/*---------------------------------------------*/
+/* Sarjat div*/
+#vt1 > div > div > div:nth-child(3){
+  border-style: solid;
+  border-block-width: 0.1em;
+  border-color: blue;
+
+  border-left-width: 0.1em;
+  border-right-width: 0.1em;
+  padding: 0.5em;
+  
+  
+}
+
+
+/*-----------------------------------------------------------------------*/
+ /* tyylimäärittelyt pienille näytöille*/
+@media all and (max-width: 500px) {
+  
+  
+  
+  
+  /*div containeri divien ympärillä*/
+#vt1 > div > div{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+ 
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+}
+
+
 
 
