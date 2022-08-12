@@ -5,18 +5,16 @@
 
 /*pääotsikko h1 */
 html > body > h1 {
-  width: 14em;
-  background-color: purple;
+  width: 14em;  
 }
 
 #vt1 > div > div > div:nth-child(1) > h2{
   overflow: hidden;
 }
 
-
 /* joukkueet laatikko */
 #vt1 > div > div > div:nth-child(1){
-  background-color: white;
+ 
   border-style: solid;
   border-color: blue;
   border-collapse: collapse;
@@ -25,7 +23,7 @@ html > body > h1 {
   border-bottom-width: 0.1em;
   border-top-width: 0.1em;
   padding: 0.6em;
-  width: 50%;
+  width: 60%;
   overflow: hidden;
 }
 
@@ -33,7 +31,6 @@ html > body > h1 {
 #vt1 > div > div > div > table {
   border-collapse: collapse;
   border: 1px solid blue;
-  table-layout: fixed;  
   width: 100%;
 }
 
@@ -57,16 +54,12 @@ html > body > h1 {
 
 /* joukkueet laatikon tablesolujen lista 3 kolumnidata*/
 #vt1 > div > div > div > table > tbody > tr > td:nth-child(3) {
-  background-color: blue;
-  width: 11em;
+  width: 10em;
 }
-
 
 /* joukkueet laatikon tablen leimaustavat lista ul */
 #vt1 > div > div > div > table > tbody > tr > td > ul  {
-  background-color: red;
-  padding-left: 20%;
-
+  padding-left:1em;
 }
 
 /* joukkueet laatikon tablen toinen kolumni*/
@@ -76,13 +69,11 @@ html > body > h1 {
 
 /* joukkueet laatikon tablen tableheading */
 #vt1 > div > div > div > table > thead > tr > th  {
- background-color: red;
  overflow: hidden;
 }
 
 /* joukkueet laatikon tablen tableheading */
 #vt1 > div > div > div > table > tbody > tr > th  {
- background-color: pink;
  overflow: hidden;
 }
 
@@ -90,7 +81,7 @@ html > body > h1 {
 /*--------------------------------------------------*/
 /* lisaa sarja jne. laatikko */
 #vt1 > div > div > div:nth-child(2){
-  background-color: white;
+
   border-style: solid;
   border-color: blue;
   border-collapse: collapse;
@@ -102,7 +93,7 @@ html > body > h1 {
   border-bottom-width: 0.1em;
   padding-left: 0.5em;
   padding-top: 0.5em;
-  width: 30%;
+  width: 20%;
   display: block;
   overflow: hidden;
 }
@@ -114,21 +105,23 @@ html > body > h1 {
 
 /*form*/
 #vt1 > div > div > div > form {
-  background-color: pink;
   border-style: hidden;
+}
+
+/*form*/
+#vt1 > div > div > div > form > fieldset > legend {
+  font-weight: bold;
 }
 
 /*ekan fieldsetin labelit */
 #vt1 > div > div > div > form > fieldset > label {
  border-style: hidden;
- background-color: lime; 
  display: block;
 }
 
 /*tokan fieldseint labelit*/
 #vt1 > div > div > div > form > fieldset > fieldset > label {
  border-style: hidden;
- background-color: lime; 
  display: block;
 }
 
@@ -137,10 +130,6 @@ html > body > h1 {
  border-style: hidden;
 }
 
-/*toisen divin järjestys otsikko*/
-#vt1 > div > div > div:nth-child(2) > h3 {
-background-color: coral;
-}
 
 /*---------------------------------------------*/
 /* Sarjat div*/
@@ -151,56 +140,10 @@ background-color: coral;
   width: 20%;
   border-left-width: 0.1em;
   border-right-width: 0.1em;
-  padding: 0.5em;
-  
-  
+  padding: 0.5em;  
 }
 
 
-/*-----------------------------------------------------------------------*/
- /* tyylimäärittelyt pienille näytöille*/
-@media all and (max-width: 500px) {
-  
-  
-  /*div containeri divien ympärillä*/
-#vt1 > div > div{
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
- 
-}
-  
-/*joukkueet laatikko*/
-#vt1 > div > div > div:nth-child(1){
-  width: 100%;
-  overflow: hidden;
-  border-style: hidden;
-}
-  
- 
-/*lisää sarja jne. laatikko*/
-#vt1 > div > div > div:nth-child(2){
-  width: 100%;
-  overflow: hidden;
-  border-style: hidden;
-}
-  
-/*sarjat laatikko*/
-#vt1 > div > div > div:nth-child(3){
-  width: 100%;
-  overflow: hidden;
-  border-style: hidden;
-}
-  
-  
-  
-  
-  
-  
-  
-  
-
-}
 
 
 
